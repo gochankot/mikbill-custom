@@ -60,15 +60,15 @@ sms_loginpass.php  sms_notifpay.php  smspilot.php
     /var/www/mikbill/admin/res/smspilot/sys/scripts/mikbill_sms_loginpass.sh
 #+END_SRC
 
-**** 2. А mikbill_sms_notifpay.sh - скрипт для авто напоминания (за 2 дня до 1го числа), и его надо добавить в cron
+**** 2. А mikbill_sms_notifpay.sh - скрипт для авто напоминания, и его надо добавить в cron
 #+BEGIN_SRC bash
     crontab -e
 #+END_SRC
 
-копируем и вставляем вот эту строку в низ списка
+FIX!  (за 2 дня до 1го числа в 9 утра (например 29 марта в 9 утра)) копируем и вставляем вот эту строку в низ списка
 
 #+BEGIN_SRC txt
-    0 9 * * *  root [ "$(date -d "($m/1) + 1 month" "+%d")" -eq "$(date "+%d")" ] && /var/www/mikbill/admin/sys/scripts/mikbill_sms_notifpay.sh
+    0 9 * * *  root [ "$(date -d "$(date -d "" "+%m")/1 + 1 month - 2 day" "+%d")" -eq "$(date "+%d")" ] && /var/www/mikbill/admin/sys/scripts/mikbill_sms_notifpay.sh
 #+END_SRC
 
 И затем запускаем cron (но скорее всего он ранее запущен)
