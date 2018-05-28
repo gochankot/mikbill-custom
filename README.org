@@ -15,7 +15,7 @@
 
 ### И так теперь что получить и как пользоваться)
 
-#+BEGIN_SRC bash
+#+BEGIN_SRC bash 
     cd ~
     git clone https://github.com/gochankot/mikbill-custom
     cd ./mikbill-custom/
