@@ -6,8 +6,8 @@
 **** Для сервиса smspilot !
 
 Вообщем выбрали мы провайдера для отправки http://smspilot.ru
-И вроде билингом потдерживаеться, но выяснилось что проше допилить руками, а точнее поскали на сайте на буквн G)
-Есть вот такие чудеснетные скрипты http://forum.forbill.com.ua/index.php?/topic/4-new-sms-opoveschenie-abonentov-sms-ukraine-sms-pilot-sms-fly-sms-beelineturbo-sms/ (спасибо вам ребята!) 
+И вроде биллингом поддерживается, но выяснилось что проще допилить руками, а точнее воспользовались поиском на сайте на буквн G)
+Есть вот такие чудесные скрипты http://forum.forbill.com.ua/index.php?/topic/4-new-sms-opoveschenie-abonentov-sms-ukraine-sms-pilot-sms-fly-sms-beelineturbo-sms/ (спасибо вам ребята!)  
 
 Еще использовалась инфа с ресурсов:
 
@@ -68,7 +68,7 @@ sms_loginpass.php  sms_notifpay.php  smspilot.php
 копируем и вставляем вот эту строку в низ списка
 
 #+BEGIN_SRC txt
-    0 9 * * *  root [ "$(date -d "$m/1 + 1 month - 2 day" "+%d")" -eq "$(date "+%d")" ] && /var/www/mikbill/admin/res/smspilot/sms_notifpay.sh
+    0 9 * * *  root [ "$(date -d "($m/1) + 1 month" "+%d")" -eq "$(date "+%d")" ] && /var/www/mikbill/admin/sys/scripts/mikbill_sms_notifpay.sh
 #+END_SRC
 
 И затем запускаем cron (но скорее всего он ранее запущен)
