@@ -65,7 +65,7 @@ sms_loginpass.php  sms_notifpay.php  smspilot.php
     crontab -e
 #+END_SRC
 
-**** копируем и вставляем вот эту строку в низ списка
+копируем и вставляем вот эту строку в низ списка
 
 #+BEGIN_SRC txt
     0 9 * * *  root [ "$(date -d "$m/1 + 1 month - 2 day" "+%d")" -eq "$(date "+%d")" ] && /var/www/mikbill/admin/res/smspilot/sms_notifpay.sh
